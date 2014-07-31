@@ -20,7 +20,7 @@ Template.xautocomplete.helpers
         else 
             null
     setInitial: (name, value)->
-        Meteor.setTimeout
+        Meteor.setTimeout ->
           el = $('div.xwidget[name='+name+']')
           el.val(value) # set the value on the container
         null        
