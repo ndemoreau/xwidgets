@@ -19,9 +19,10 @@ Template.xautocomplete.helpers
             item.value 
         else 
             null
-    setInitial: (name, value)-> 
-        el = $('div.xwidget[name='+name+']')
-        el.val(value) # set the value on the container
+    setInitial: (name, value)->
+        Meteor.setTimeout
+          el = $('div.xwidget[name='+name+']')
+          el.val(value) # set the value on the container
         null        
     tags: (tag) -> local_tags.find tag:tag 
     items: (call, name) -> # the items that will be shown in the popover
@@ -61,7 +62,7 @@ Template.xautocomplete.events
             if index == count then index = 0 else index += 1
             local_items.update({index:index}, {$set:{selected: 'selected'}})
         else if e.keyCode == 13
-            $(e.target).parent().find('.popover').focus()
+            $(e.target).parent().find('.xpopover').focus()
             if t.data.tag # tag mode
                 selected = local_items.findOne selected: 'selected'
                 if selected
@@ -95,7 +96,7 @@ Template.xautocomplete.events
         val = $(e.target).attr('value')
         local_tags.remove({tag: t.data.tag, value:val})
 
-    'blur .popover': (e,t)->
+    'blur .xpopover': (e,t)->
         local_items.remove({})
         Session.set('xquery','')
 
