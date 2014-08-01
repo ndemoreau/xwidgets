@@ -13,11 +13,11 @@
     <div class="xwidget xautocomplete-tag" tabindex=100 tag={{this.atts.tag}} references={{this.atts.references}} strict={{this.atts.strict}} name="{{getName}}" data-schema-key="{{this.name}}">
         {{setInitial getName this.value}}
         <input type='text' class=xautocomplete name="{{getName}}" value="{{getValue getName}}">
-        <div class=xpopover tabindex=100>
+        <ul class="xpopover" tabindex=100>
         {{#each items this.atts.call getName}}
-            <div index={{this.index}} class="xitem {{this.selected}}">{{this.name}}</div>
+            <li index={{this.index}} class="xitem {{this.selected}}">{{this.name}}</li>
         {{/each}}
-        </div>
+        </ul>
         {{#each tags this.atts.tag}}
             <span class=tag>{{this.value}} <span value={{this.value}} class=xclose>|x</span></span>
         {{/each}}

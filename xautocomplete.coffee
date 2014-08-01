@@ -25,7 +25,7 @@ Template.xautocomplete.helpers
           el.val(value) # set the value on the container
         null        
     tags: (tag) -> local_tags.find tag:tag 
-    items: (call, name) -> # the items that will be shown in the popover
+    items: (call, name) -> # the items that will be shown in the xpopover
         query = Session.get('xquery')
         if name == current_input                    
             if query != ''
@@ -80,7 +80,7 @@ Template.xautocomplete.events
                     name = $(e.target).attr('name')
                     xdata.update({name:name}, {$set: {value:selected.name}})
                     $(e.target).attr('_id', selected.remote_id)             
-            # close popover
+            # close xpopover
             local_items.remove({})
             Session.set('xquery','')
             index = -1

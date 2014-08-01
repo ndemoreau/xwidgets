@@ -1,7 +1,16 @@
 .xpopover {
     position: absolute;
     z-index: 2;
-    background-color: #F3E2A9;
+    border-radius: 0 !important;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    text-align: left;
+    border: 1px solid #cccccc;
+    background-color: #FFFFFF;
+    background-clip: padding-box;
+    left: inherit;
     cursor: pointer;
 }
 
@@ -48,7 +57,7 @@ display: none;
 
 }
 
-.popover-calendar {
+.xpopover-calendar {
     position: absolute;
     z-index: 2;
     background-color: #F3E2A9;
